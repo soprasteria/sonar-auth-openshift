@@ -129,8 +129,9 @@ public class OpenShiftConfiguration {
 		return config.get(BUTTON_COLOR).orElse("#666666");
 	}
 
+	//As we are keeping same name for route and service account, we can use serviceaccount name as we don't have any such methods to get route name  
 	public String getRouteURL(String namespace) {
-		return String.format(ROUTE_URI, getApiURL(), namespace, "sonarqube");
+		return String.format(ROUTE_URI, getApiURL(), namespace, getServiceAccountName());
 	}
 	
 	public static List<PropertyDefinition> definitions() {
